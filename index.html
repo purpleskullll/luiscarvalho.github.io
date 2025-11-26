@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Currículo - Luis Henrique Acioli Carvalho</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <script src="javascript/javascript.js" defer></script>
+</head>
+<body>
+
+    <button onclick="openNav()" class="open-btn">☰ Menu</button>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#dados">Dados Pessoais</a>
+        <a href="#apresentacao">Apresentação</a>
+        <a href="#formacao">Formação</a>
+        <a href="#conhecimentos">Conhecimentos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#idiomas">Idiomas</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+    </div>
+
+    <div id="conteudo">
+
+        <div class="central">
+            <img src="imagem/imagem.jpg" alt="Foto de perfil">
+        </div>
+
+        <section id="dados">
+            <h1>Dados Pessoais</h1>
+            <p><strong>Nome:</strong> Luis Henrique Acioli Carvalho</p>
+            <p><strong>Idade:</strong> 17 anos</p>
+            <p><strong>Telefone:</strong> (41) 99584-0210</p>
+            <p><strong>E-mail:</strong> luis.carvalho.acioli@gmail.com</p>
+        </section>
+
+        <section id="apresentacao">
+            <h2>Apresentação</h2>
+            <p>Sou um estudante dedicado e apaixonado por música e comunicação. Por conta do convívio constante com computadores, me afeiçoei com a computação. Tenho experiência em liderança estudantil, produção musical e desenvolvimento de narrativas textuais. Gosto de trabalhar em equipe, aprender coisas novas e enfrentar desafios que possam contribuir para meu crescimento pessoal e profissional.</p>
+        </section>
+
+        <section id="formacao">
+            <h2>Formação</h2>
+            <ul>
+                <li>Cursando Ensino Médio Técnico em Programação de Jogos Digitais – Instituto Federal Campus Curitiba (2022 - Atual)</li>
+                <li>Ensino Fundamental II – Escola Aline Picheth (concluído)</li>
+            </ul>
+        </section>
+
+        <section id="conhecimentos">
+            <h2>Conhecimentos</h2>
+            <ul>
+                <li>Linguagens de programação: C, C++, C# e JavaScript</li>
+                <li>Linguagem de marcação/texto: HTML5</li>
+                <li>Folha de estilo: CSS</li>
+                <li>Ambientes de desenvolvimento: Unity, Visual Studio, Code Blocks</li>
+                <li>Modelagem 3D: Blender</li>
+                <li>Ilustração vetorial: Inkscape</li>
+                <li>Som e áudio: Fmod, Audacity, Nuendo</li>
+            </ul>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades</h2>
+            <ul>
+                <li>Comunicação e trabalho em equipe</li>
+                <li>Liderança e organização</li>
+                <li>Criatividade e pensamento crítico</li>
+                <li>Conhecimentos básicos de computação</li>
+            </ul>
+        </section>
+
+        <section id="idiomas">
+            <h2>Idiomas</h2>
+            <ul>
+                <li>Português – Nativo</li>
+                <li>Inglês – Avançado</li>
+            </ul>
+        </section>
+
+        <section id="experiencia">
+            <h2>Experiência</h2>
+            <ul>
+                <li><strong>Projeto Musif</strong> – Instituto Federal Campus Curitiba (Dez 2022 - Atual)<br>Manuseio de equipamentos de som, gerenciamento de pessoas, comunicação com público.</li>
+                <li><strong>Projeto de Extensão: Criação de Narrativa e Personagem para Jogos Digitais</strong> – IFPR (Mar 2023 - Dez 2023)<br>Aprimoramento da escrita criativa, análise e prática de narrativas para jogos digitais.</li>
+                <li><strong>Grêmio Estudantil Marielle Franco</strong> – Diretor de Relações Acadêmicas (Nov 2022 - Atual)<br>Intermediação entre alunos e direção, articulação com grêmios externos, defesa de ideias estudantis.</li>
+                <li><strong>Grupo Brasileiro</strong> – Conservatório de Música Popular Brasileira (Mar 2023 - Atual)<br>Estudo musical, expressão vocal, canto e interpretação.</li>
+            </ul>
+        </section>
+
+        <section id="projetos">
+            <h2>Projetos Desenvolvidos</h2>
+            <div id="carrossel-imagens" class="carrossel"></div>
+            <div class="botoes-carrossel">
+                <button onclick="mudarImagens(-1)">◀ Anterior</button>
+                <button onclick="mudarImagens(1)">Próximo ▶</button>
+            </div>
+        </section>
+
+        <section id="jogo-abelha" style="display:none; padding: 20px; text-align:center;">
+          <h2>Jogo da Abelha</h2>
+          <canvas id="game" width="414" height="736"></canvas>
+          <br>
+          <button onclick="fecharJogo()" style="padding:10px 20px;">Voltar ao Portfólio</button>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Luis Henrique Acioli Carvalho. Todos os direitos reservados.</p>
+        <button onclick="document.body.style.fontFamily='Roboto'">Roboto</button>
+        <button onclick="document.body.style.fontFamily='Lobster'">Lobster</button>
+        <button onclick="document.body.style.fontFamily='Montserrat'">Montserrat</button>
+    </footer>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="fecharPopup()">&times;</span>
+            <img id="popup-img" src="" alt="Imagem ampliada">
+            <h3 id="popup-titulo"></h3>
+            <p id="popup-descricao"></p>
+            <small id="popup-data"></small>
+        </div>
+    </div>
+
+<script>
+function abrirJogoAbelha() {
+  document.getElementById("projetos").style.display = "none";
+  const jogo = document.getElementById("jogo-abelha");
+  jogo.style.display = "block";
+
+  // Carrega scripts apenas uma vez
+  if (!window.jogoCarregado) {
+    const s1 = document.createElement("script");
+    s1.src = "javascript/objs.js";
+    document.body.appendChild(s1);
+    s1.onload = () => {
+      const s2 = document.createElement("script");
+      s2.src = "javascript/game.js";
+      document.body.appendChild(s2);
+    };
+    window.jogoCarregado = true;
+  }
+}
+
+function fecharJogo() {
+  document.getElementById("jogo-abelha").style.display = "none";
+  document.getElementById("projetos").style.display = "block";
+}
+</script>
+</body>
+</html>
