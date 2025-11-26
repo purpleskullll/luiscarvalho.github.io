@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Jogo da Abelha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- MESMO CSS DO INDEX -->
+    <link rel="stylesheet" href="css/estilo.css" />
+
+    <!-- javascript.js contém openNav/closeNav, popup, carrossel, etc.
+         defer: garante que o DOM carregue antes do script executar -->
+    <script src="javascript/javascript.js" defer></script>
+
+    <!-- Carrega os scripts do jogo depois que o DOM estiver pronto.
+         Usamos defer para que o jogo execute após o DOM e após javascript.js -->
+    <script src="javascript/objs.js" defer></script>
+    <script src="javascript/game.js" defer></script>
+
+    <style>
+      /* ajustes visuais mínimos específicos da página do jogo */
+      .titulo-jogo { text-align: center; margin-top: 18px; font-size: 26px; }
+      #game { display:block; margin: 18px auto; border:2px solid #222; max-width: 100%; }
+      /* garante que o menu fique acima do canvas */
+      #mySidenav { z-index: 2000; }
+    </style>
+</head>
+<body>
+
+    <!-- botão e menu idênticos ao index (javascript.js fornece openNav/closeNav) -->
+    <button onclick="openNav()" class="open-btn">☰ Menu</button>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <!-- volta ao index via link -->
+        <a href="index.html">🏠 Voltar ao Portfólio</a>
+        <!-- você pode manter outras opções aqui -->
+        <a href="#sobre-jogo">Sobre o Jogo</a>
+        <a href="#jogo">Jogar</a>
+    </div>
+
+    <div id="conteudo">
+        <section id="sobre-jogo" style="padding:18px;">
+            <h1 class="titulo-jogo">Jogo da Abelha</h1>
+            <p style="text-align:center;">Use as setas ( ← → ) ou A / D para mover a abelha. Pressione ENTER para iniciar.</p>
+        </section>
+
+        <section id="jogo" style="text-align:center; padding-bottom:40px;">
+            <!-- canvas: seu código de jogo (game.js) deve usar este id -->
+            <canvas id="game" width="414" height="736" aria-label="Canvas do Jogo"></canvas>
+        </section>
+    </div>
+
+    <footer>
+        <p style="margin:0;">&copy; 2025 Luis Henrique Acioli Carvalho. Todos os direitos reservados.</p>
+
+        <!-- Mesmos botões de seleção de fonte do index -->
+        <button class="font-btn" data-font="Roboto">Roboto</button>
+        <button class="font-btn" data-font="Lobster">Lobster</button>
+        <button class="font-btn" data-font="Montserrat">Montserrat</button>
+    </footer>
+
+    <!-- Pequeno script local para garantir que, se javascript.js não implementar a persistência da fonte, a página faça isso.
+         Se você já for adicionar o trecho maior no javascript/javascript.js, não é obrigatório manter este bloco aqui,
+         mas mantê-lo não causa conflito. -->
+    <script>
+    (function(){
+      function applySavedFont(){
+        try {
+          const f = localStorage.getItem('fonteSelecionada');
+          if(f) document.body.style.fontFamily = f;
+        } catch(e){ /* ignore */ }
+      }
+
+      // aplica fonte salva imediatamente
+      applySavedFont();
+
+      // liga os botões visuais da página (caso javascript.js não cubra)
+      document.querySelectorAll('.font-btn').forEach(btn=>{
+        btn.addEventListener('click', ()=> {
+          const font = btn.getAttribute('data-font');
+          document.body.style.fontFamily = font;
+          try { localStorage.setItem('fonteSelecionada', font); } catch(e){}
+        });
+      });
+
+      // expõe applySavedFont globalmente caso os seus scripts que carregam depois queiram reaplicar
+      window.applySavedFont = applySavedFont;
+    })();
+    </script>
+
+</body>
+</html>
